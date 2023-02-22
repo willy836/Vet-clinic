@@ -27,6 +27,10 @@ WHERE weight_kg >= 10.40 AND weight_kg <= 17.30;
 BEGIN;
 UPDATE animals
 SET species = 'unspecified';
+
+BEGIN;
+UPDATE animals
+SET species = 'unspecified';
 ROLLBACK;
 
 BEGIN;
@@ -34,8 +38,30 @@ UPDATE animals
 SET species = 'digimon'
 WHERE name LIKE '%mon';
 
+BEGIN;
+UPDATE animals
+SET species = 'pokemon'
+WHERE name NOT LIKE '%mon';
 
-/* Begin of a transaction */
+BEGIN;
+
+UPDATE animals
+SET species = 'digimon'
+WHERE name LIKE '%mon';
+
+UPDATE animals
+SET species = 'pokemon'
+WHERE name NOT LIKE '%mon';
+
+COMMIT;
+
+BEGIN;
+DELETE FROM animals;
+
+BEGIN;
+DELETE FROM animals;
+ROLLBACK;
+
 BEGIN;
 
 DELETE FROM animals
@@ -51,7 +77,7 @@ SET weight_kg = weight_kg * -1
 WHERE weight_kg < 0;
 
 COMMIT;
-/* End */
+
 
 SELECT COUNT(*) FROM animals;
 
