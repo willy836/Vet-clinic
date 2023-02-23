@@ -48,5 +48,35 @@ FOREIGN KEY(owner_id)
 REFERENCES owners(id)
 ON DELETE CASCADE;
 
+-- Many-to-many relationships
+CREATE TABLE vets (
+	id INT GENERATED ALWAYS AS IDENTITY NOT NULL PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
+	age INT NOT NULL,
+	date_of_graduation DATE NOT NULL
+);
 
+CREATE TABLE specializations (
+	vets_id INT NOT NULL,
+	CONSTRAINT fk_vets
+	FOREIGN KEY(vets_id)
+	REFERENCES vets(id),
+	species_id INT NOT NULL,
+	CONSTRAINT fk_species
+	FOREIGN KEY(species_id)
+	REFERENCES species(id)
+);
 
+CREATE TABLE visits (
+	vets_id INT NOT NULL,
+	CONSTRAINT fk_vets
+	FOREIGN KEY(vets_id)
+	REFERENCES vets(id),
+	animals_id INT NOT NULL,
+	CONSTRAINT fk_animals
+	FOREIGN KEY(animals_id)
+	REFERENCES animals(id)
+);
+
+ALTER TABLE visits
+ADD COLUMN date_of_visit DATE;
