@@ -184,3 +184,59 @@ WHERE vets.name = 'Maisy Smith'
 GROUP BY species_name
 ORDER BY species_count DESC
 LIMIT 1;
+
+-- Database performance audit
+-- Update owners table; age column
+UPDATE owners
+SET age = 34
+WHERE id = 1;
+
+UPDATE owners
+SET age = 19
+WHERE id = 2;
+
+UPDATE owners
+SET age = 45
+WHERE id = 3;
+
+UPDATE owners
+SET age = 77
+WHERE id = 4;
+
+UPDATE owners
+SET age = 14
+WHERE id = 5;
+
+UPDATE owners
+SET age = 38
+WHERE id = 6;
+
+explain analyze SELECT COUNT(*) FROM visits where animals_id = 4;
+-- Execution Time: 3,658, 239 ms
+
+SELECT COUNT(*) FROM visits where animals_id = 4;
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits WHERE animals_id = 4
+-- Before improving execution time
+
+SELECT COUNT(*) FROM visits where animals_id = 4;
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits WHERE animals_id = 4;
+CREATE INDEX animals_id_asc ON visits(animals_id ASC);
+-- After improving execution time by indexing
+
+SELECT * FROM visits where vets_id = 2;
+EXPLAIN ANALYZE SELECT * FROM visits where vets_id = 2;
+-- Before improving execution time
+
+SELECT * FROM visits where vets_id = 2;
+EXPLAIN ANALYZE SELECT * FROM visits where vets_id = 2;
+CREATE INDEX vets_id_asc ON visits(vets_id ASC);
+-- After improving execution time by indexing
+
+SELECT * FROM owners where email = 'owner_18327@mail.com';
+EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';
+-- Before improving execution time
+
+SELECT * FROM owners where email = 'owner_18327@mail.com';
+EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';
+CREATE INDEX email_asc ON owners(email ASC);
+-- After improving execution time by indexing

@@ -80,3 +80,12 @@ CREATE TABLE visits (
 
 ALTER TABLE visits
 ADD COLUMN date_of_visit DATE;
+
+-- Database performance audit
+ALTER TABLE owners
+DROP COLUMN age;
+
+ALTER TABLE owners
+ADD COLUMN age INT; 
+
+ 
