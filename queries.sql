@@ -232,11 +232,4 @@ EXPLAIN ANALYZE SELECT * FROM visits where vets_id = 2;
 CREATE INDEX vets_id_asc ON visits(vets_id ASC);
 -- After improving execution time by indexing
 
-SELECT * FROM owners where email = 'owner_18327@mail.com';
-EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';
--- Before improving execution time
-
-SELECT * FROM owners where email = 'owner_18327@mail.com';
-EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';
-CREATE INDEX email_asc ON owners(email ASC);
--- After improving execution time by indexing
+--ADD CODE HERE
