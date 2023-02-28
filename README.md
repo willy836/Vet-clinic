@@ -76,9 +76,9 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 > Describe between 1-3 key features of the application.
 
-- **[holds animals data]**
-- **[various queries can be performed on the data]**
-- **[auto id increment when new row is inserted into the table]**
+- **[holds animals data from several relations]**
+- **[join tables from many-to-many relationships]**
+- **[practice writing queries using JOIN]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -115,13 +115,19 @@ Install this project with:
 To run the project, execute the following command:
 Connect to your PostgreSQL server with psql
 
-## 👥 Author <a name="authors"></a>
+## 👥 Authors <a name="authors"></a>
 
 👤 **Wilson Kimiri**
 
 - GitHub: [@githubhandle](https://github.com/willy836)
 - Twitter: [@twitterhandle](https://twitter.com/Kimiri836)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/wilson-kimiri/)
+
+👤 **Gaurav Gangwar**
+
+- GitHub: [@githubhandle](https://github.com/gauravgangwarweb)
+- Twitter: [@twitterhandle](https://twitter.com/)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/gauravgangwarweb/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -131,8 +137,8 @@ Connect to your PostgreSQL server with psql
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[animals owner table]**
-- [ ] **[clinic employees table]**
+- [ ] **[species table]**
+- [ ] **[vets table]**
 - [ ] **[visits table]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -160,6 +166,7 @@ Give this project a ⭐️ if you like it.
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I would like to thank Microverse for the learning materials
+Many thanks to my coding partner for the awesome teamwork
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
